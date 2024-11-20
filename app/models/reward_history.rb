@@ -1,3 +1,4 @@
 class RewardHistory < ApplicationRecord
-  belongs_to :user
+  validates :points, numericality: { greater_than: 0 }
+  validates :action, presence: true
 end

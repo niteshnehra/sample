@@ -1,0 +1,16 @@
+<h1>New Reward for <%= @user.name %></h1>
+
+<%= form_with model: @reward, url: user_rewards_path(@user) do |form| %>
+  <div>
+    <%= form.label :recipient_id, 'Recipient' %>
+    <%= form.collection_select :recipient_id, @users, :id, :name, prompt: 'Select Recipient' %>
+  </div>
+  
+  <div>
+    <%= form.label :p5_cost, 'P5 Cost' %>
+    <%= form.number_field :p5_cost, max: 100, required: true %>
+  </div>
+  
+  <%= form.submit 'Create Reward', class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', user_rewards_path(@user), class: 'btn btn-secondary' %>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>Reward History for <%= @user.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Date-Time</th>
+      <th>Rewards Received</th>
+      <th>User Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reward_history.each_with_index do |reward, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= reward.created_at %></td>
+        <td><%= reward.reward_amount %></td>
+        <td><%= reward.user.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

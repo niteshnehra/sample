@@ -1,6 +1,6 @@
-class CreateP5Histories < ActiveRecord::Migration[8.0]
+class CreateRewardHistories < ActiveRecord::Migration[7.1]
   def change
-    create_table :p5_histories do |t|
+    create_table :reward_histories do |t|
       t.references :user, null: false, foreign_key: true
       t.integer :points
       t.string :given_by_id

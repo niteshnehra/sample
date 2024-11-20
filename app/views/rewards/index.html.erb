@@ -1,0 +1,30 @@
+<h1><%= @user.name %>'s Rewards</h1>
+
+<!-- Display the Rewards Balance -->
+<p><strong>Rewards Balance: </strong><%= @reward_balance %></p>
+
+<!-- Display the Rewards History in a Table -->
+<h2>Rewards History</h2>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Date-Time</th>
+      <th>Rewards Received</th>
+      <th>User Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rewards.each_with_index do |reward, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= reward.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td><%= reward.points %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- Button to create new reward -->
+<%= link_to 'New Reward', new_user_reward_path(@user) %>

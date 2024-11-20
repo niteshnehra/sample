@@ -1,0 +1,21 @@
+<h1>Give a New Reward</h1>
+
+<%= form_with url: user_rewards_path(@user), method: :post, local: true do |form| %>
+  <div>
+    <label for="reward_amount">Reward Amount (Max 100 P5):</label>
+    <%= form.number_field :reward_amount, min: 1, max: 100, step: 1 %>
+  </div>
+
+  <div>
+    <label for="recipient">Recipient:</label>
+    <%= form.select :recipient_id, @users.collect { |user| [user.name, user.id] }, prompt: 'Select a user' %>
+  </div>
+
+  <div>
+    <p>Your P5 balance: <%= @p5_balance %></p>
+  </div>
+
+  <div>
+    <%= form.submit 'Give Reward', id: 'submit_button' %>
+  </div>
+<% end %>
